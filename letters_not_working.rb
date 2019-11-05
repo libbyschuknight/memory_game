@@ -9,10 +9,10 @@ class MemoryGame
   end
 
   def start_game
-    game_loop(letters)
+    game_loop
   end
 
-  def game_loop(letters)
+  def game_loop
     # get array of letters and shuffle
     # letters = "aabbccddeeffgghhiijj".chars.shuffle
     # p letters
@@ -24,7 +24,7 @@ class MemoryGame
 
       puts "This is turn #{turn}."
 
-
+      binding.pry
       leftover_boxes = boxes_left(letters)
       puts "There are these boxes left: #{leftover_boxes.join(", ")}."
 
@@ -47,6 +47,7 @@ class MemoryGame
   end
 
   def boxes_left(letters)
+    binding.pry
     boxes = []
     letters.each_with_index { |letter, index| boxes << index + 1 unless letter.nil? }
     boxes
@@ -59,14 +60,14 @@ class MemoryGame
   # this, again is where I would look up the docs :) as cannot remember :(
 
   def get_current_letter(letters, user_number)
-
+    binding.pry
     current_letter = ""
     letters.each_with_index { |letter, index| current_letter = letter if (user_number - 1) == index }  # this is right
     current_letter
   end
 
   def remove_letters(letters, current_letter, last_letter)
-
+    binding.pry
     letters.each do |letter|
       # return nil if (letter == current letter)
     end
